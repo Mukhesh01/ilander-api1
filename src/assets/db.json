@@ -1,0 +1,20 @@
+{
+    "Employee":[
+        {
+            "id":1,
+            "firstname":"Raj",
+            "lastname":"Varma",
+            "designation":"Developer",
+            "contact":789456,
+            "address":"Pune"
+        },
+        {
+            "id":2,
+            "firstname":"Rajesh",
+            "lastname":"Varma",
+            "designation":"UI developer",
+            "contact":456789,
+            "address":"Mumbai"
+        }
+    ]
+}

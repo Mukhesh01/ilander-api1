@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+  <h2>Bordered Table</h2>
+  <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>country_id</th>
+        <th>country_name</th>
+        <th>country_status</th>
+        <th>Update</th>
+        <th>Delete</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tableObj">
+        <td>{{item.country_id}}</td>
+        <td>{{item.country_name}}</td>
+        <td>{{item.country_status}}</td>
+        <td (click)="updateMe(item.country_id)">      
+            <span data-toggle="modal" data-target="#edit-4" class="db-edit-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+          </td>
+            <td (click)="deleteMe(item.country_id)">
+                <span href="" class="db-delete-btn"><i  class="fa fa-trash-o db-tb-btns" aria-hidden="true"></i></span>
+            </td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+              <form action method="post">
+                <div class="form-group">
+                  <label for="title">Country Name</label>
+                  <input  [(ngModel)]="addObj.countryname" type="text" name="addObj.countryname" class="form-control" placeholder="Country Name"/>
+                </div>
+                
+              </form>
+              <button type="submit" class="btn btn-primary" (click)="addCountry()">Add Country</button>
+          
+
+
+
+
+
+<div class="modal fade" id="updateCountries" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-bottom-0">
+          <h5 class="modal-title" id="exampleModalLabel">Edit-data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+          <div class="modal-body">
+            <div class="add-form">
+              <form action method="post">
+    
+                <div class="form-group">
+                  <label for="title">Update ID</label>
+                  <input type="text" name="updatecnObj.cnId" readonly id="title" [(ngModel)]="updatecnObj.cnId" class="form-controll" placeholder=""/>
+                </div>
+    
+    
+                <div class="form-group">
+                  <label for="title">Update Country</label>
+                  <input type="text" name="updatecnObj.cnName" id="title" [(ngModel)]="updatecnObj.cnName"  class="form-controll" placeholder=""/>
+                </div>
+    
+    
+              </form>
+            </div>  
+          </div>
+          <div class="bd-pop-submit-btn">
+            <button type="submit" (click)="updateMe1()" class="btn btn-success">Submit</button>
+          </div>
+          {{updateStatus}}
+        </form>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+
+    <div class="container">
+        <h2>Modal Example</h2>
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          Open modal
+        </button>
+      
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <!-- Modal body -->
+              <div class="modal-body">
+                  <div class="add-form">
+                      <form action method="post">
+            
+                        <div class="form-group">
+                          <label for="title">Update ID</label>
+                          <input type="text" name="updatecnObj.cnId" readonly id="title" [(ngModel)]="updatecnObj.cnId" class="form-controll" placeholder=""/>
+                        </div>
+            
+            
+                        <div class="form-group">
+                          <label for="title">Update Country</label>
+                          <input type="text" name="updatecnObj.cnName" id="title" [(ngModel)]="updatecnObj.cnName"  class="form-controll" placeholder=""/>
+                        </div>
+            
+            
+                      </form>
+                    </div> 
+              </div>
+              
+              <!-- Modal footer -->
+              <div class="bd-pop-submit-btn">
+                  <button type="submit" (click)="updateMe1()" class="btn btn-success">Submit</button>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      
+          
+
+</body>
+</html>
